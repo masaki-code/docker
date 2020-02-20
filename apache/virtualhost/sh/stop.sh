@@ -1,15 +1,19 @@
 #!/bin/bash
+
+IMAGE=my-apache2-vhost
+CONTAINER=my-running-vhost-app
+
 echo ======================
 echo stop
 echo ======================
-docker stop my-running-vhost-app
+docker stop $CONTAINER
 
 echo ======================
 echo rm
 echo ======================
-docker rm my-running-vhost-app
+docker rm $CONTAINER
 
 echo ======================
 echo rmi
 echo ======================
-docker rmi my-apache2-vhost
+docker rmi $IMAGE
