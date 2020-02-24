@@ -1,0 +1,3 @@
+IMAGE=my-apache2-priority-base-a
+CONTAINER=my-running-priority-base-a-app
+PORT=8080
