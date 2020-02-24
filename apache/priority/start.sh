@@ -1,14 +1,4 @@
 #!/bin/bash
+. ./func
 
-. ./env
-
-echo ======================
-echo build
-echo ======================
-docker build -t $IMAGE $DOCKER_FILE
-
-echo ======================
-echo run
-echo ======================
-docker run -dit --name $CONTAINER -p $PORT:80 $IMAGE
-
+start my-apache2-priority-base-sample my-running-priority-base-sample 8080 ./sample/httpd.conf

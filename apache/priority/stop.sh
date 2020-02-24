@@ -1,18 +1,4 @@
 #!/bin/bash
+. ./func
 
-. ./env
-
-echo ======================
-echo stop
-echo ======================
-docker stop $CONTAINER
-
-echo ======================
-echo rm
-echo ======================
-docker rm $CONTAINER
-
-echo ======================
-echo rmi
-echo ======================
-docker rmi $IMAGE
+stop my-apache2-priority-base-sample my-running-priority-base-sample
