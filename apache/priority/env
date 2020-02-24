@@ -1,5 +1,0 @@
-IMAGE=my-apache2-priority-base-sample
-CONTAINER=my-running-priority-base-sample
-PORT=8080
-DOCKER_FILE=./sample
-HTTPD_CONF=./sample/httpd.conf
