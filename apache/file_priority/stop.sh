@@ -1,6 +1,6 @@
 #!/bin/bash
 . ./func
-stop my-apache2-file_priority-001 my-running-file_priority-001
+stop my-apache2-file_priority my-running-file_priority
 
 echo ======================
 echo docker ps -a
