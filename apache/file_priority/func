@@ -1,0 +1,41 @@
+#!/bin/bash
+
+function start(){
+
+  IMAGE_NAME=$1
+  CONTAINER_NAME=$2
+  PORT=$3
+  DOCKER_FILE=$4
+
+  echo ======================
+  echo build
+  echo ======================
+  docker build -t $IMAGE_NAME $DOCKER_FILE
+
+  echo ======================
+  echo run
+  echo ======================
+  docker run -dit --name $CONTAINER_NAME -p $PORT:80 $IMAGE_NAME
+
+}
+
+function stop(){
+
+  IMAGE_NAME=$1
+  CONTAINER_NAME=$2
+
+  echo ======================
+  echo stop
+  echo ======================
+  docker stop $CONTAINER_NAME
+
+  echo ======================
+  echo rm
+  echo ======================
+  docker rm $CONTAINER_NAME
+
+  echo ======================
+  echo rmi
+  echo ======================
+  docker rmi $IMAGE_NAME
+}
