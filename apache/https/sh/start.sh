@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IMAGE=my-apache2-http2
-CONTAINER=my-running-http2
+IMAGE=my-apache2-https
+CONTAINER=my-running-https
 
 echo ======================
 echo build
