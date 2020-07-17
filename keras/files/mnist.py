@@ -29,6 +29,10 @@ print("--- model ---")
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 
+# -------
+# 28 * 28 = 784
+# -------
+
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(784,)))
 model.add(Dropout(0.2))
@@ -37,6 +41,13 @@ model.add(Dropout(0.2))
 model.add(Dense(num_classes, activation='softmax'))
 
 print("--- model.summary ---")
+# -------
+# (784 +1) * 512 = 401,920
+# (512 +1) * 512 = 262,656
+# (512 +1) *  10 =   5,130
+# -------
+# 669,706
+# -------
 
 model.summary()
 
@@ -62,4 +73,3 @@ print("--- model.evaluate ---")
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
-
