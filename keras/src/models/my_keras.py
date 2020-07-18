@@ -1,26 +1,13 @@
 import keras
 
-class MyModel:
+class MyModelCommon:
+    """my class"""
+
     num_classes = 10
     batch_size = 128
     epochs = 20
     __verbose_fit = 1
     __verbose_evaluate = 0
-
-    def __init__(self):
-        from keras.models import Sequential
-        from keras.layers import Dense, Dropout
-
-        model = Sequential()
-        model.add(Dense(512, activation='relu', input_shape=(784,)))
-        model.add(Dropout(0.2))
-        model.add(Dense(512, activation='relu'))
-        model.add(Dropout(0.2))
-        model.add(Dense(self.num_classes, activation='softmax'))
-        self.model = model
-
-    def summary(self):
-        self.model.summary()
 
     def compile(self):
         from keras.optimizers import RMSprop
@@ -42,6 +29,29 @@ class MyModel:
 
     def save(self, name = 'my_model.h5'):
         self.model.save(name)
+
+    def summary(self):
+        self.model.summary()
+
+class MyModel(MyModelCommon):
+    def __init__(self):
+        from keras.models import Sequential
+        from keras.layers import Dense, Dropout
+
+        model = Sequential()
+        model.add(Dense(512, activation='relu', input_shape=(784,)))
+        model.add(Dropout(0.2))
+        model.add(Dense(512, activation='relu'))
+        model.add(Dropout(0.2))
+        model.add(Dense(self.num_classes, activation='softmax'))
+        self.model = model
+
+class MyModelFromFile(MyModelCommon):
+    """my class"""
+
+    def __init__(self, name = 'my_model.h5'):
+        from keras.models import load_model
+        self.model = load_model(name)
 
 class MyMnist:
     """mnist wrapper"""
