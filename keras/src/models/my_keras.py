@@ -1,5 +1,35 @@
 import keras
 
+class MyNumbers:
+    """my class"""
+
+    def __init__(self, y):
+        self.y = y
+
+    def _trim(self, x):
+        if x < 0.1:
+            return 0
+        else:
+            return x
+
+    def value(self):
+        return self.y
+
+    def trimValue(self):
+        return list(map(self._trim, self.y))
+
+    def resultNumber(self):
+        max = 0
+        i = 0
+        r = 0
+        for num in self.y:
+            if max < num:
+                max = num
+                r = i
+            i = i + 1
+
+        return (r, max)
+
 class MyModelCommon:
     """my class"""
 
@@ -32,6 +62,12 @@ class MyModelCommon:
 
     def summary(self):
         self.model.summary()
+
+    def predict(self, x):
+        x = x.reshape(1, 784)
+        predict = self.model.predict(x, batch_size=None, verbose=0, steps=None)
+        return predict[0]
+
 
 class MyModel(MyModelCommon):
     def __init__(self):
@@ -88,3 +124,12 @@ class MyMnist:
     def to_categorical(self):
         self.y_train = keras.utils.to_categorical(self.y_train, self.num_classes)
         self.y_test = keras.utils.to_categorical(self.y_test, self.num_classes)
+
+    def sample(self):
+        import random
+        min = 0
+        max = len(self.x_test)-1
+        i = random.randint(min, max)
+        x = self.x_test[i]
+        y = self.y_test[i]
+        return (x, y, i)
