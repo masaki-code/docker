@@ -1,3 +1,5 @@
+# 保存した訓練データの読み込み
+# ファイル名：my_model.h5
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 

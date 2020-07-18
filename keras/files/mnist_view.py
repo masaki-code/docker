@@ -1,3 +1,5 @@
+# mnistのデータの可視化
+# 画像データを表示する。
 import os,re
 import keras
 from keras.datasets import mnist

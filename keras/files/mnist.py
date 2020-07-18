@@ -1,3 +1,6 @@
+# 参考元コードをベースに適宜ログを仕込んだもの。動作確認用。
+# https://github.com/keras-team/keras/blob/master/examples/mnist_mlp.py
+
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
