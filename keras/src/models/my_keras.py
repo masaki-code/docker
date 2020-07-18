@@ -40,6 +40,9 @@ class MyModel:
         print('Test loss:', score[0])
         print('Test accuracy:', score[1])
 
+    def save(self, name = 'my_model.h5'):
+        self.model.save(name)
+
 class MyMnist:
     """mnist wrapper"""
 

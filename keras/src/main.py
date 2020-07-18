@@ -19,3 +19,6 @@ model.compile()
 print(":: --- fit ---")
 model.fit(mnist)
 model.evaluate(mnist)
+
+print(":: --- save ---")
+model.save()
