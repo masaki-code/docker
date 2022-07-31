@@ -16,7 +16,7 @@ docker image ls $IMAGE
 echo ======================
 echo run
 echo ======================
-docker run -dit --name $CONTAINER $IMAGE
+docker run -dit --name $CONTAINER -p 8080:80 $IMAGE
 
 echo ======================
 echo ps
